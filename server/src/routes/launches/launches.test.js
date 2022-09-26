@@ -1,3 +1,4 @@
+/* global describe, beforeAll, afterAll, test, expect */
 const request = require('supertest');
 
 const {mongoConnect, mongoDisconnect} = require('../../services/mongo');
@@ -14,7 +15,7 @@ describe('Launches API', () => {
 
 	describe('Test GET /launches', () => {
 		test('Should respond with 200', async () => {
-			const response = await request(app)
+			await request(app)
 				.get('/v1/launches')
 				.expect('Content-Type', /json/)
 				.expect(200);
